@@ -18,8 +18,4 @@ FactoryBot.define do
   sequence :task_description do |n|
     "Task description number - #{n}"
   end
-
-  sequence :task_expired_at do |n|
-    Date.current + n
-  end
 end

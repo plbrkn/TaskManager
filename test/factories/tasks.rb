@@ -5,6 +5,6 @@ FactoryBot.define do
     author_id { 1 }
     assignee_id { 1 }
     state { 'new_task' }
-    expired_at { :task_expired_at }
+    expired_at { Date.current + 10 }
   end
 end
