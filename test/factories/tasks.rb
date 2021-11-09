@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :task do
     name { :task_name }
     description { :task_description }
-    author_id { 1 }
-    assignee_id { 1 }
+    author_id { create(:manager).id }
+    assignee_id { create(:developer).id }
     state { 'new_task' }
     expired_at { Date.current + 10 }
   end
