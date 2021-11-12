@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class Web::BoardsControllerTest < ActionController::TestCase
-  
   setup do
     user = create(:user)
     sign_in user
