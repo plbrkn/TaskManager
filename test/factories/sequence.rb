@@ -1,5 +1,5 @@
 FactoryBot.define do
-  sequence :string, aliases: [:first_name, :last_name, :password] do |n|
+  sequence :string, aliases: [:first_name, :last_name, :password, :name, :description] do |n|
     "string#{n}"
   end
 
@@ -9,13 +9,5 @@ FactoryBot.define do
 
   sequence :avatar do |n|
     "avatar#{n}/example.png"
-  end
-
-  sequence :task_name do |n|
-    "Task name number - #{n}"
-  end
-
-  sequence :task_description do |n|
-    "Task description number - #{n}"
   end
 end

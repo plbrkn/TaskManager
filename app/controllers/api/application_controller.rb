@@ -1,2 +1,6 @@
-class Api::V1::ApplicationController < Api::ApplicationController
+class Api::ApplicationController < ApplicationController
+  include AuthHelper
+  helper_method :current_user
+
+  respond_to :json
 end
