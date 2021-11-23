@@ -46,6 +46,10 @@
     "import/extensions": ["off"],
     "react/no-array-index-key": ["off"],
     "filenames/match-exported": 2,
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
     "react/prop-types": [
       2,
       {
