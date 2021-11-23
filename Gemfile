@@ -18,6 +18,7 @@ gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'responders'
 gem 'active_model_serializers'
+gem 'webpacker-react'
 gem 'js-routes'
 
 gem 'bootsnap', '>= 1.4.4', require: false
