@@ -5,6 +5,7 @@ import KanbanBoard from '@asseinfo/react-kanban';
 import { propOr } from 'ramda';
 
 import Task from 'components/Task';
+import ColumnHeader from 'components/ColumnHeader';
 import TasksRepository from 'repositories/TasksRepository';
 
 const STATES = [
@@ -46,6 +47,15 @@ const TaskBoard = () => {
     });
   };
 
+  const loadColumnMore = (state, page = 1, perPage = 10) => {
+    loadColumn(state, page, perPage).then(({ data }) => {
+      setBoardCards((prevState) => ({
+        ...prevState,
+        [state]: { cards: [...prevState[state].cards, ...data.items], meta: data.meta },
+      }));
+    });
+  };
+
   const loadBoard = () => {
     STATES.map(({ key }) => loadColumnInitial(key));
   };
@@ -66,7 +76,14 @@ const TaskBoard = () => {
   useEffect(() => loadBoard(), []);
   useEffect(() => generateBoard(), [boardCards]);
 
-  return <KanbanBoard renderCard={(card) => <Task task={card} />}>{board}</KanbanBoard>;
+  return (
+    <KanbanBoard
+      renderColumnHeader={(column) => <ColumnHeader column={column} onLoadMore={loadColumnMore} />}
+      renderCard={(card) => <Task task={card} />}
+    >
+      {board}
+    </KanbanBoard>
+  );
 };
 
 export default TaskBoard;
