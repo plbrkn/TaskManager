@@ -137,14 +137,11 @@ const TaskBoard = () => {
     });
   };
 
-  const handleTaskDestroy = (task) => {
-    const attributes = TaskForm.attributesToSubmit(task);
-
-    return TasksRepository.destroy(task.id, attributes).then(() => {
+  const handleTaskDestroy = (task) =>
+    TasksRepository.destroy(task.id).then(() => {
       loadColumnInitial(task.state);
       handleClose();
     });
-  };
 
   const handleOpenEditPopup = (task) => {
     setOpenedTaskId(task.id);
